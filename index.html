@@ -4,94 +4,149 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second_form</title>
     <style>
         *{margin: 0; padding: 0; box-sizing: border-box;}
-        body {
-            background-color: rgb(165, 170, 184);
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background:rgb(194, 189, 169);
         }
 
-        form{
-            background-color: white;
-            max-width: 500px;
-            width: 70%;
-            padding: 20px;
+        .box{
             position: absolute;
-            left: 50%;
             top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-        }
-
-        form h3 {
-            text-align: center;
-            color: grey;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-        
-        form input[type=text],
-        form input[type=password]{
-            width: 100%;
-            height: 45px;
-            border: 1px solid #cecece;
-            padding-left: 10px;
-            margin: 5px 0px;
-            border-radius: 5px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-         }
-
-         form input[type=submit]{
-            width: 100%;
-            height: 35px;
-            border: 0px;
-            border-radius: 5px;
-            background: grey;
+            background-color: rgb(194, 116, 116);
             color: white;
-            cursor: pointer;
-            transition: 0.5s;
-         }
+            padding: 15px;
+            border-radius: 7px;
+            width: 100%;
+            max-width: 400px;
+        }
 
-         form input[type=submit]:hover{
-            background-color: rgb(42, 49, 70);
-         }
+        fieldset{
+            border: 3px solid rgb(124, 71, 71);
+            border-radius: 3px;
+            padding: 10px;
+        }
 
-         form input[type=text]:focus{
-            outline: 0;
-         }
+        legend{
+            border: 1px solid rgb(124, 71, 71);
+            padding: 10px;
+            text-align: center;
+            background-color: rgb(124, 71, 71);
+            border-radius: 3px;
+        }
 
-         form input[type=password]:focus{
-            outline: 0;
-         }
+        .inputbox{
+            position: relative;
+        }
 
+        .inputUser{
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgb(78, 74, 74);
+            outline: none;
+            color: white;
+            font-size: 14px;
+            width: 100%;
+            letter-spacing: 1px;        
+        }
+
+        .labelinput{
+            position: absolute;
+            top: 0px; 
+            left: 0px;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        .inputUser:focus ~ .labelinput,
+        .inputUser:valid ~ .labelinput {
+            top: -9px;
+            font-size: 10px;
+            color: rgb(77, 35, 35);
+        }
+
+        #data_nascimento{
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        #submit{
+            background: rgb(124, 71, 71);
+            outline: none;
+            border: none;
+            font-size: 14px;
+            width: 100%;
+            border-radius: 10px;
+            padding: 10px;
+            color:white;
+        }
+
+        #submit:hover{
+            background-color: rgb(77, 35, 35);
+            transition: .5s;
+        }
     </style>
-    <title>Form contato</title>
 </head>
-    <body>
-        <form>
-            <h3>ENTRE EM CONTATO</h3>
-            <input id="email" type="text" name="email" placeholder="Seu email..."/>
-            <input id="password" type="password" name="senha" placeholder="Sua senha..."/>
-            <input type="submit" name="acao" value="enviar"/>
+<body>
+    <div class="box">
+        <form action="">
+            <fieldset>
+                <legend><b>Formulário de Clientes</b></legend>
+                <br>
+                <div class="inputbox">
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <label for="nome" class="labelinput">Nome Completo</label>
+                </div>
+                <br>
+                <div class="inputbox">
+                    <input type="text" name="email" id="email" class="inputUser" required>
+                    <label for="email" class="labelinput" >e-Mail</label>
+                </div>
+                <br>
+                <div class="inputbox">
+                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                    <label for="telefone" class="labelinput">Telefone</label>
+                </div>
+                <br>
+                <p>Sexo:</p>
+                <input type="radio" id="feminino" name="gênero" value="feminino" required>
+                <label for="feminino">Feminino</label>
+                <br>
+                <input type="radio" id="masculino" name="gênero" value="masculino" required>
+                <label for="feminino">Masculino</label>
+                <br>
+                <input type="radio" id="outro" name="gênero" value="outro" required>
+                <label for="outro">Outro</label>
+                <br><br>
+                <div>
+                <label for="data_nascimento"><b>Data de Nascimento</b></label>
+                <input type="date" name="data_nascimento" id="data_nascimento" required>
+                </div>
+                <br>
+                <div class="inputbox">
+                    <input type="text" name="cidade" id="cidade" class="inputUser" required>
+                    <label for="cidade" class="labelinput">Cidade</label>
+                </div>
+                <br>
+                <div class="inputbox">
+                    <input type="text" name="estado" id="estado" class="inputUser" required>
+                    <label for="estado" class="labelinput">Estado</label>
+                </div>
+                <br>
+                <div class="inputbox">
+                    <input type="text" name="endereco" id="endereco" class="inputUser" required>
+                    <label for="endereco" class="labelinput">Endereço</label>
+                </div>
+                <br>
+                <input type="submit" name="submit" id="submit">
+            </fieldset>
         </form>
-        <script>
-            var email = document.getElementById('email');
-            var password = document.getElementById('password');
-            
-            email.addEventListener('focus', ()=>{
-                    email.style.borderColor = "rgb(42, 49, 70)";
-            })
-
-            email.addEventListener('blur', ()=>{
-                    email.style.borderColor = "#cecece";
-            })
-
-            password.addEventListener('focus', ()=>{
-                    password.style.borderColor = "rgb(42, 49, 70)";
-            })
-
-            password.addEventListener('blur', ()=>{
-                    password.style.borderColor = "#cecece";
-            })
-
-
-        </script>
-    </body>
+    </div>
+</body>
 </html>
